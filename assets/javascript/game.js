@@ -18,6 +18,7 @@ function startGame() {
     //computer generates random "goal" number
     targetNumber = Math.floor(Math.random() * 99) + 1;
     targetNumber = $("#target-number").text(targetNumber);
+    
 
 
 
@@ -43,56 +44,81 @@ function startGame() {
 }
 
 
-startGame()
+startGame();
 
 //user interaction
 //============================================================
 function gamePlay() {
-
+    
 
     //user presses bunny cat (on click event)
     $("#bunnyCat").on("click", function () {
-        alert("hop hop");
+        totalScore += bunnyCat;
+        //number is added to total score
+        //totalScore = $("#total-score").replaceWith(totalScore);
+
+        console.log(totalScore);
     });
 
     
       //user presses boa cat (on click event)
     $("#boaCat").on("click", function () {
-        alert("so pretty");
+        totalScore += boaCat;
+       //totalScore = $("#total-score").replaceWith(totalScore);
+        console.log(totalScore);
     });
     
       //user presses pirate cat (on click event)
     $("#pirateCat").on("click", function () {
-        alert("Arrrr!");
+        totalScore += pirateCat;
+      // totalScore = $("#total-score").replaceWith(totalScore);;
+        console.log(totalScore);
     });
 
       //user presses watermelon cat (on click event)
     $("#watermelonCat").on("click", function () {
-        alert("dis ess mein!");
+        totalScore += watermelonCat;
+        //totalScore = $("#total-score").replaceWith(totalScore);
+        console.log(totalScore);
     });
+    
+     
 
-
-
-
- 
-
-
-
-
-
-    //number is added to "total score" box
+//number is added to "total score" box
 
     //user continues to choose crystals until target number is met
 
     //If target number is met..
-
-    //win counter goes up by 1
-
-    //game starts over
-
+    if (totalScore === targetNumber) {
+         //win counter goes up by 1
+        wins++
+        alert("you win");
+        //game starts over
+        startGame();
+        
+    }
+   
     //if total score exceeds target number
+    if (totalScore > targetNumber) {
+        //losses goes up by 1
+        losses++
+        alert("you lose");
+        //game starts over
+        startGame();
+    }
+    
+  
 
-    //losses goes up by 1
+    
+
+    
+
+    
+
+    
+  
 
 }
+
 gamePlay();
+
