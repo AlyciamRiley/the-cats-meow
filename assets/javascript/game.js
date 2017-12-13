@@ -15,8 +15,8 @@ var bunnyCat = 0;
 //start of game
 //===========================================================
 function startGame() {
-    //computer generates random "goal" number
-    targetNumber = Math.floor(Math.random() * 99) + 1;
+    //computer generates random "goal" number8
+    targetNumber = Math.floor(Math.random() * 80) + 20;
     targetNumber = $("#target-number").text(targetNumber);
 
 
@@ -24,16 +24,16 @@ function startGame() {
 
 
     //computer randomly assigns values to each cat -- 
-    pirateCat = Math.floor(Math.random() * 25) + 1;
+    pirateCat = Math.floor(Math.random() * 12) + 1;
     // console.log(pirateCat);
 
-    watermelonCat = Math.floor(Math.random() * 25) + 1;
+    watermelonCat = Math.floor(Math.random() * 12) + 1;
     //console.log(watermelonCat);
 
-    boaCat = Math.floor(Math.random() * 25) + 1;
+    boaCat = Math.floor(Math.random() * 12) + 1;
     //console.log(boaCat);
 
-    bunnyCat = Math.floor(Math.random() * 25) + 1;
+    bunnyCat = Math.floor(Math.random() * 12) + 1;
     //console.log(bunnyCat);
 
     //total score is set to zero
@@ -44,7 +44,7 @@ function startGame() {
 }
 
 
-startGame();
+
 
 //user interaction
 //============================================================
@@ -55,8 +55,10 @@ function gamePlay() {
     $("#bunnyCat").click(function () {
         //number is added to total score
         totalScore = Number(totalScore) + Number($(this).val());
-        $('#total-score').text("Total Score: " + totalScore);
         totalScore += bunnyCat;
+        $('#total-score').text("Total Score: " + totalScore);
+        checkWin();
+        
         
         
         console.log(totalScore);
@@ -68,18 +70,21 @@ function gamePlay() {
     $("#boaCat").click(function () {
         //number is added to total score
         totalScore = Number(totalScore) + Number($(this).val());
-        $('#total-score').text("Total Score: " + totalScore);
         totalScore += boaCat;
+        $('#total-score').text("Total Score: " + totalScore);
+        checkWin();
 
       console.log(totalScore);
     });
 
     //user presses pirate cat (on click event)
-    $("#pirateCat").click(function () {
+   $("#pirateCat").click(function () {
         //number is added to total score
         totalScore = Number(totalScore) + Number($(this).val());
-        $('#total-score').text("Total Score: " + totalScore);
         totalScore += pirateCat;
+        $('#total-score').text("Total Score: " + totalScore);
+        checkWin();
+        
         
         console.log(totalScore);
     });
@@ -88,43 +93,45 @@ function gamePlay() {
     //user presses watermelon cat (on click event)
     $("#watermelonCat").click(function () {
         //number is added to total score
-        totalScore = Number(totalScore) + Number($(this).val());
-        $('#total-score').text("Total Score: " + totalScore);
         totalScore += watermelonCat;
+        totalScore = Number(totalScore) + Number($(this).val());
+        
+        $('#total-score').text("Total Score: " + totalScore);
+        checkWin();
        
         console.log(totalScore);
     });
 
 
-    //user continues to choose crystals until target number is met
+    //user continues to choose cats until target number is met
 
-    //If target number is met..
-    if (totalScore === targetNumber) {
-        //win counter goes up by 1
-        wins++
-        alert("you win");
-        //game starts over
-        startGame();
+}
 
-    }
-
-    //if total score exceeds target number
-    if (totalScore > targetNumber) {
-        //losses goes up by 1
-        losses++
+function checkWin(){
+    
+   
+    if (targetNumber>totalScore) {
+        lossCounter++;
         alert("you lose");
         //game starts over
-        startGame();
+        //startGame();
     }
 
+    
+    //If target number is met..
+    if (targetNumber===totalScore) {
+        //win counter goes up by 1
+        winCounter++;
+        alert("you win");
+        //game starts over
+        //startGame();
 
-
-
-
-
+    }
+  
 
 
 
 }
-
+startGame();
 gamePlay();
+checkWin();
