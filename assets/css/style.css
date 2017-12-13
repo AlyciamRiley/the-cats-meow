@@ -1,3 +1,5 @@
+
+
 body {
     background-image: url(../images/blackglitter.jpg); 
     background-size: 500px 500px;
@@ -8,6 +10,9 @@ body {
     font-family: 'Lato', sans-serif;
     
 }
+
+
+
 
 .container {
     border: 5px solid #ff3399;
@@ -26,7 +31,7 @@ body {
 }
 
 
-#cat {
+#bunnyCat, #boaCat, #pirateCat, #watermelonCat {
     height: 200px;
     width: auto;
     border: 3px solid #fff;
@@ -55,7 +60,7 @@ h1 {
 }
 
 #scoreboard {
-     width: 500px;
+     width: 725px;
     height: 100px;
     border: 4px solid #ff3399;
     font-size: 25px;
@@ -68,3 +73,19 @@ h1 {
     
     
 }
+
+/*total-score {
+    width: 875px;
+    height: 50px;
+    border: 4px solid #ff3399;
+    font-size: 25px;
+    font-weight: 700;
+    background-color: #ffe6f3;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 35px;
+}
+
+#score {
+    text-align: center;
+} */
