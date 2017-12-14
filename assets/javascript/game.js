@@ -18,10 +18,11 @@ $(document).ready(function () {
     //start of game
     //===========================================================
     function startGame() {
+        
 
         //computer generates random "goal" number
         targetNumber = Math.floor((Math.random() * 80) + 20);
-        targetNumber = $("#target-number").text(targetNumber);
+       $("#target-number").text(targetNumber);
 
 
         //computer randomly assigns values to each cat -- 
@@ -43,33 +44,12 @@ $(document).ready(function () {
     startGame();
 
 
-   function checkWin() {
-console.log("checking")
 
-            if (totalScore > targetNumber) {
-                losses++;
-                $("losses").text(losses);
-                alert("you lose");
-                //game starts over
-                startGame();
-            }
-
-
-            else if (targetNumber === totalScore) {
-                wins++;
-                alert("you win");
-                $("#wins").text(wins);
-                //game starts over
-                startGame();
-
-            }
-
-        }
     //user interaction
     //============================================================
     function gamePlay() {
 
-     
+
 
         $('#total-score').text("Total Score: " + totalScore);
         //user presses bunny cat (on click event)
@@ -80,9 +60,7 @@ console.log("checking")
             $('#total-score').text("Total Score: " + totalScore);
             checkWin();
 
-
-
-            console.log(totalScore);
+ //console.log(totalScore);
         });
 
 
@@ -124,7 +102,28 @@ console.log("checking")
             console.log(totalScore);
         });
 
+        function checkWin() {
+          
 
+            if (totalScore > targetNumber) {
+                losses++;
+                $("losses").text(losses);
+                alert("you lose");
+                //game starts over
+                startGame();
+            }
+
+
+            if (targetNumber === totalScore) {
+                wins++;
+                alert("you win");
+                $("#wins").text(wins);
+                //game starts over
+                startGame();
+
+            }
+
+        }
 
     }
 
