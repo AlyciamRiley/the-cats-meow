@@ -19,6 +19,8 @@ $(document).ready(function () {
     //===========================================================
     function startGame() {
         
+        totalScore = 0;
+        
 
         //computer generates random "goal" number
         targetNumber = Math.floor((Math.random() * 80) + 20);
@@ -60,7 +62,6 @@ $(document).ready(function () {
             $('#total-score').text("Total Score: " + totalScore);
             checkWin();
 
- //console.log(totalScore);
         });
 
 
@@ -107,17 +108,17 @@ $(document).ready(function () {
 
             if (totalScore > targetNumber) {
                 losses++;
-                $("losses").text(losses);
+                $("#losses").text(losses);
                 alert("you lose");
                 //game starts over
                 startGame();
             }
 
 
-            if (targetNumber === totalScore) {
+             if (targetNumber === totalScore) {
                 wins++;
                 alert("you win");
-                $("#wins").text(wins);
+                $("#wins").text(wins);  
                 //game starts over
                 startGame();
 
