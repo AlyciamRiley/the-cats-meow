@@ -1,3 +1,5 @@
+/* ----General---- */
+
 body {
   background-image: url(../images/blackglitter.jpg);
   background-size: 500px 500px;
@@ -17,6 +19,18 @@ body {
   background-color: #fff;
 }
 
+
+h1 {
+  font-size: 65px;
+  text-align: center;
+  font-family: "Sacramento", cursive;
+  font-weight: 700;
+  color: #ff3399;
+  text-decoration: underline;
+}
+
+
+/* ----Gameplay---- */
 #game-rules {
   line-height: 25px;
   text-align: center;
@@ -29,15 +43,6 @@ body {
   height: 200px;
   width: auto;
   border: 3px solid #fff;
-}
-
-h1 {
-  font-size: 65px;
-  text-align: center;
-  font-family: "Sacramento", cursive;
-  font-weight: 700;
-  color: #ff3399;
-  text-decoration: underline;
 }
 
 #target-number {
